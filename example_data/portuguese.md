@@ -1,0 +1,1 @@
+qual é o sentido da vida
