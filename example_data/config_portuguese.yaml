@@ -1,0 +1,30 @@
+input_file: "example_data/portuguese.md"
+output_folder: "example_data/portuguese/"
+text_to_text_model: "allenai/OLMoE-1B-7B-0924-Instruct-GGUF/olmoe-1b-7b-0924-instruct-q8_0.gguf"
+text_to_speech_model: "parler-tts/parler-tts-mini-multilingual-v1.1"
+text_to_text_prompt: |
+  Você é um escritor de podcast que gera conversas envolventes e naturais no formato JSON.
+   O roteiro conta com os seguintes palestrantes:
+   {SPEAKERS}
+   Instruções:
+   - Escreva um diálogo dinâmico e fácil de seguir.
+   - Inclui interrupções e interjeições naturais.
+   - Evite frases repetitivas entre interlocutores.
+   - Formata o resultado como uma conversa JSON.
+   Exemplo:
+   {
+   "Speaker 1": "Bem-vindo ao nosso podcast! Hoje vamos explorar...",
+   "Speaker 2": "Olá! Estou animado em saber disso. Você pode explicar...",
+   "Speaker 1": "Claro! Imagine assim...",
+   "Speaker 2": "Oh, isso é ótimo! Mas como..."
+   }
+speakers:
+  - id: 1
+    name: Sophia
+    description: O principal motorista. Explica os tópicos com clareza, usando anedotas e analogias, ensinando de forma atrativa e cativante.
+    voice_profile: Sophia
+
+  - id: 2
+    name: Nicholas
+    description: O co-apresentador. Mantém a conversa no tópico, faz perguntas curiosas e reage com entusiasmo ou confusão, muitas vezes usando interjeições como hmm ou umm.
+    voice_profile: Nicholas

@@ -5,12 +5,69 @@
 
 <p align="center"><img src="./images/Blueprints-logo.png" width="35%" alt="Project logo"/></p>
 
-# Document-to-podcast: a Blueprint by Mozilla.ai for generating podcasts from documents using local AI
+# Document-to-podcast: Experimenting with different languages!
 
-This blueprint demonstrate how you can use open-source models & tools to convert input documents into a podcast featuring two speakers.
-It is designed to work on most local setups or with [GitHub Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=888426876&skip_quickstart=true&machine=standardLinux32gb), meaning no external API calls or GPU access is required. This makes it more accessible and privacy-friendly by keeping everything local. Moreover, we have added support for models that enable generating podcasts (both text and audio), in multiple languages!
+For more up-to-date information, please visit the [original repo](https://github.com/mozilla-ai/document-to-podcast).
 
-### 👉 📖 For more detailed guidance on using this project, please visit our [Docs here](https://mozilla-ai.github.io/document-to-podcast/).
+This repo showcases how to use the `document-to-podcast` tool with languages other than English. 
+
+
+## Supported languages
+
+### Text-to-Text (script generation)
+
+Most of the SOTA LLMs right now can perform quite well in different languages without any tweaking. Our default model [OLMoE](https://huggingface.co/collections/allenai/olmoe-66cf678c047657a30c8cd3da), seems to be able to handle multiple languages relatively well, but there is no official documentation on which languages it supports. If you feel you are not getting a script that is convincing enough in the language you want, feel free to change the `text-to-text` model by following the instructions in the [docs](https://mozilla-ai.github.io/document-to-podcast/). 
+
+### Text-to-Speech (audio generation)
+
+Since these models keep evolving, for an updated list of all languages and speakers please visit their respective websites.
+
+-  [x] `parler-tts/parler-tts-mini-multilingual-v1.1` [HF](https://huggingface.co/parler-tts/parler-tts-mini-multilingual-v1.1) - [Speaker list](https://huggingface.co/parler-tts/parler-tts-mini-multilingual-v1.1#%F0%9F%8E%AF-using-a-specific-speaker)
+    - [x] Portuguese ( `Sophia` & `Nicholas`)
+    - [x] Dutch ( `Mark` & `Jessica`)
+    - [x] French ( `Daniel` & `Christine`)
+    - [x] German ( `Nicole` & `Michelle`)
+    - [x] Italian ( `Julia` & `Richard`)
+    - [x] Polish ( `Alex` & `Natalie`)
+    - [x] Spanish ( `Steven` & `Olivia`)
+-  [x] `ai4bharat/indic-parler-tts`  [HF](https://huggingface.co/ai4bharat/indic-parler-tts) - [Speaker list](https://huggingface.co/ai4bharat/indic-parler-tts#%F0%9F%8E%AF-using-a-specific-speaker)
+    - [x] Assamese ( `Amit` & `Sita`)
+    - [x] Bengali ( `Arjun` & `Aditi`)
+    - [x] Bodo ( `Bikram` & `Maya`)
+    - [x] Chhattisgarhi ( `Bhanu` & `Champa`)
+    - [x] Dogri ( `Karan` & `Karan`)
+    - [x] Gujarati ( `Yash` & `Neha`)
+    - [x] Hindi ( `Rohit` & `Divya`)
+    - [x] Kannada ( `Suresh` & `Anu`)
+    - [x] Malayalam ( `Anjali` & `Harish`),
+    - [x] Manipuri ( `Laishram` & `Ranjit`),
+    - [x] Marathi ( `Sanjay` & `Sunita`),
+    - [x] Nepali ( `Amrita` & `Amrita`)
+    - [x] Odia ( `Manas` & `Debjani`),
+    - [x] Punjabi ( `Divjot` & `Gurpreet`),
+    - [x] Sanskrit ( `Aryan` & `Aryan`)
+    - [x] Tamil ( `Jaya` & `Jaya`)
+    - [x] Telugu ( `Prakash` & `Lalitha`)
+- [x] `suno/bark` [GitHub](https://github.com/suno-ai/bark) - [Speaker hub](https://suno-ai.notion.site/8b8e8749ed514b0cbf3f699013548683?v=bc67cff786b04b50b3ceb756fd05f68c)
+    - [x] German ( `v2/de_speaker_0` & `v2/de_speaker_1`)
+    - [x] Spanish ( `v2/es_speaker_0` & `v2/es_speaker_8`)
+    - [x] French ( `v2/fr_speaker_0` & `v2/fr_speaker_1`)
+    - [x] Hindi ( `v2/hi_speaker_0` & `v2/hi_speaker_1`)
+    - [x] Italian ( `v2/it_speaker_0` & `v2/it_speaker_1`)
+    - [x] Japanese ( `v2/ja_speaker_0` & `v2/ja_speaker_1`)
+    - [x] Korean ( `v2/ko_speaker_0` & `v2/ko_speaker_1`)
+    - [x] Polish ( `v2/pl_speaker_0` & `v2/pl_speaker_1`)
+    - [x] Portuguese ( `v2/pt_speaker_0` & `v2/pt_speaker_1`)
+    - [x] Russian ( `v2/ru_speaker_0` & `v2/ru_speaker_1`)
+    - [x] Turkish ( `v2/tr_speaker_0` & `v2/tr_speaker_1`)
+    - [x] Chinese ( `v2/zh_speaker_0` & `v2/zh_speaker_1`)
+- [x] `OuteTTS-0.2-500M` [GitHub](https://github.com/edwko/OuteTTS) - [Speaker list](https://github.com/edwko/OuteTTS/blob/main/outetts/version/v1/interface.py#L31)
+    - [x] Japanese (`female_1` & `male_1`)
+    - [x] Korean (`female_1` & `male_1`)
+    - [x] Chinese (`female_1` & `male_1`)
+    - [x] Korean (`female_1` & `male_1`)
+
+
 
 ### Built with
 - Python 3.10+ (use Python 3.12 for Apple M1/2/3 chips)
@@ -19,95 +76,46 @@ It is designed to work on most local setups or with [GitHub Codespaces](https://
 - [Streamlit](https://streamlit.io/) (UI demo)
 
 
-## Quick-start
 
-Get started with Document-to-Podcast using one of the two options below: **GitHub Codespaces** for a hassle-free setup or **Local Installation** for running on your own machine.
+## Usage
 
----
-
-### **Option 1: GitHub Codespaces**
-
-The fastest way to get started. Click the button below to launch the project directly in GitHub Codespaces:
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=888426876&skip_quickstart=true&machine=standardLinux32gb)
-
-Once the Codespaces environment launches, inside the terminal, start the Streamlit demo by running:
+1. **Install the package**
    ```bash
-   python -m streamlit run demo/app.py
+   pip install document-to-podcast
    ```
 
-### **Option 2: Local Installation**
+2. **Set your configuration**:
+   1. **Pick a model from the list above, based on the language you want to try**.
+   
+       For example: `parler-tts/parler-tts-mini-multilingual-v1.1`
+   
+   2. **Edit the `example_data/config.yaml` with your configuration**
 
-1. **Clone the Repository**
-   Inside the Codespaces terminal, run:
-   ```bash
-   git clone https://github.com/mozilla-ai/document-to-podcast.git
-   cd document-to-podcast
-   ```
+       Specifically, you should update the following parameters:
 
-2. **Install Dependencies**
-   Inside the terminal, run:
+       `input_file`: Use a file that has text in a language of your choice
+
+       `text_to_speech_model`: Use one of the model ids, defined above, based on the language you are testing
+
+       `text_to_text_prompt`: Re-write it / Translate it in the testing language
+
+       `speaker/description`: Re-write it / Translate it in the testing language
+
+       `voice_profile`: Use one of the pre-defined profiles based on the testing language, from the list above
+   
+        `outetts_language` (Only for models from the [OuteAI](https://github.com/edwko/OuteTTS) family): You need to add this argument at the bottom of your config and add a supported language like `en, zh, ja, ko`.
+
+3. **Generate the podcast**
+   Inside the terminal, run the CLI:
    ```bash
-   pip install -e .
-3. **Run the Demo**
-   Inside the terminal, start the Streamlit demo by running:
-   ```bash
-   python -m streamlit run demo/app.py
+   document-to-podcast --from_config example_data/config.yaml
    ```
+   _Note: If you don't want to wait for the whole podcast to be generated you can stop it mid-way, by pressing Ctrl+C in the terminal that you are running the process. It will stop and save the script and audio up until that point!_
+
+4. **Verify everything worked as expected by checking `podcast.txt` and `podcast.wav`**
 
 ***NOTE***: The first time you run the demo app it might take a while to generate the script or the audio because it will download the models to the machine which are a few GBs in size.
 
-
-## How it Works
-
-<img src="./images/document-to-podcast-diagram.png" width="1200" />
-
-
-1. **Document Upload**
-   Start by uploading a document in a supported format (e.g., PDF, .txt, or .docx).
-
-2. **Document Pre-Processing**
-   The uploaded document is processed to extract and clean the text. This involves:
-   - Extracting readable text from the document.
-   - Removing noise such as URLs, email addresses, and special characters to ensure the text is clean and structured.
-
-3. **Script Generation**
-   The cleaned text is passed to a language model to generate a podcast transcript in the form of a conversation between two speakers.
-   - **Model Loading**: The system selects and loads a pre-trained LLM optimized for running locally, using the llama_cpp library. This enables the model to run efficiently on CPUs, making them more accessible and suitable for local setups.
-   - **Customizable Prompt**: A user-defined "system prompt" guides the LLM in shaping the conversation, specifying tone, content, speaker interaction, and format.
-   - **Output Transcript**: The model generates a podcast script in structured format, with each speaker's dialogue clearly labeled.
-     Example output:
-     ```json
-     {
-         "Speaker 1": "Welcome to the podcast on AI advancements.",
-         "Speaker 2": "Thank you! So what's new this week for the latest AI trends?",
-         "Speaker 1": "Where should I start.. Lots has been happening!",
-         ...
-     }
-     ```
-   This step ensures that the podcast script is engaging, relevant, and ready for audio conversion.
-
-4. **Audio Generation**
-  - The generated transcript is converted into audio using a Text-to-Speech (TTS) model.
-  -	Each speaker is assigned a distinct voice.
-	- The final output is saved as an audio file in formats like MP3 or WAV.
-
-## Models
-
-The architecture of this codebase focuses on modularity and adaptability, meaning it shouldn't be too difficult to swap frameworks to use your own suite of models. We have selected fully open source models that are very memory efficient and can run on a laptop CPU with less than 10GB RAM requirements.
-
-### text-to-text
-
-We are using the [llama.cpp](https://github.com/ggerganov/llama.cpp) library, which supports open source models optimized for local inference and minimal hardware requirements. The default text-to-text model in this repo is the open source [OLMoE-7B-Instruct](https://huggingface.co/allenai/OLMoE-1B-7B-0924-Instruct) from [AllenAI](https://allenai.org/).
-
-For the complete list of models supported out-of-the-box, visit this [link](https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#text-only).
-
-### text-to-speech
-
-We support models from the [OuteAI](https://github.com/edwko/OuteTTS) and [Parler_tts](https://github.com/huggingface/parler-tts) packages. The default text-to-speech model in this repo is [OuteTTS-0.2-500M](https://huggingface.co/OuteAI/OuteTTS-0.2-500M). Note that the `0.1-350M` version has a `CC-By-4.0` (permissive) license, whereas the newer / better `0.2-500M` version has a `CC-By-NC-4.0` (non-commercial) license.
-For a complete list of models visit [Oute HF](https://huggingface.co/collections/OuteAI) (only the GGUF versions) and [Parler HF](https://huggingface.co/collections/parler-tts).
-
-**Important note:** In order to keep the package dependencies as lightweight as possible, only the Oute interface is installed by default. If you want to use the parler models, please also follow the instructions at https://github.com/huggingface/parler-tts.
 
 ## Pre-requisites
 
@@ -120,15 +128,6 @@ For a complete list of models visit [Oute HF](https://huggingface.co/collections
 - **Dependencies**:
   - Dependencies listed in `pyproject.toml`
 
-## Troubleshooting
-
-> When starting up the codespace, I get the message `Oh no, it looks like you are offline!`
-
-If you are on Firefox and have Enhanced Tracking Protection `On`, try turning it `Off` for the codespace webpage.
-
-> During the installation of the package, it fails with `ERROR: Failed building wheel for llama-cpp-python`
-
-You are probably missing the `GNU Make` package. A quick way to solve it is run on your terminal `sudo apt install build-essential`
 
 ## License
 
