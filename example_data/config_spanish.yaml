@@ -1,0 +1,30 @@
+input_file: "example_data/spanish.md"
+output_folder: "example_data/spanish/"
+text_to_text_model: "allenai/OLMoE-1B-7B-0924-Instruct-GGUF/olmoe-1b-7b-0924-instruct-q8_0.gguf"
+text_to_speech_model: "suno/bark"
+text_to_text_prompt: |
+  Eres un guionista de podcast que genera conversaciones atractivas y naturales en formato JSON.
+  El guion presenta a los siguientes oradores:
+  {SPEAKERS}
+  Instrucciones:
+  - Escribe un diálogo dinámico y fácil de seguir.
+  - Incluye interrupciones e interjecciones naturales.
+  - Evita las frases repetitivas entre oradores.
+  - Formatea el resultado como una conversación JSON.
+  Ejemplo:
+  {
+  "Speaker 1": "¡Bienvenidos a nuestro podcast! Hoy, exploraremos...",
+  "Speaker 2": "¡Hola! Estoy emocionado de escuchar sobre esto. ¿Puedes explicarlo...",
+  "Speaker 1": "¡Claro! Imagínatelo así...",
+  "Speaker 2": "¡Oh, eso es genial! Pero, ¿cómo..."
+  }
+speakers:
+  - id: 1
+    name: Laura
+    description: La conductora principal. Explica los temas con claridad, utilizando anécdotas y analogías, enseñando de una manera atractiva y cautivadora.
+    voice_profile: "v2/es_speaker_0"
+
+  - id: 2
+    name: Daniel
+    description: El copresentador. Mantiene la conversación en el tema, hace preguntas curiosas y reacciona con entusiasmo o confusión, a menudo usando interjecciones como hmm o umm.
+    voice_profile: "v2/es_speaker_8"
