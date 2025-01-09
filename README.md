@@ -7,16 +7,19 @@
 
 # Document-to-podcast: Experimenting with different languages!
 
-For more up-to-date information, please visit the [original repo](https://github.com/mozilla-ai/document-to-podcast).
+For more up-to-date information on the core codebase, please visit the [original repo](https://github.com/mozilla-ai/document-to-podcast).
 
-This repo showcases how to use the `document-to-podcast` tool with languages other than English. 
+This repo showcases how to use the `document-to-podcast` tool with languages other than English by using additional TTS models. 
 
 
-## Supported languages
+## Supported models / languages
 
 ### Text-to-Text (script generation)
 
-Most of the SOTA LLMs right now can perform quite well in different languages without any tweaking. Our default model [OLMoE](https://huggingface.co/collections/allenai/olmoe-66cf678c047657a30c8cd3da), seems to be able to handle multiple languages relatively well, but there is no official documentation on which languages it supports. If you feel you are not getting a script that is convincing enough in the language you want, feel free to change the `text-to-text` model by following the instructions in the [docs](https://mozilla-ai.github.io/document-to-podcast/). 
+Most of the SOTA LLMs right now can perform quite well in different languages without any tweaking. The default model [OLMoE](https://huggingface.co/collections/allenai/olmoe-66cf678c047657a30c8cd3da), seems to be able to handle multiple languages relatively well, but there is no official documentation on which languages it supports. If you feel you are not getting a script that is convincing enough in the language you want, feel free to change the `text-to-text` model by following the instructions in the [docs](https://mozilla-ai.github.io/document-to-podcast/). 
+
+Another LLM that seems to work well is:
+`bartowski/Meta-Llama-3.1-8B-Instruct-GGUF/Meta-Llama-3.1-8B-Instruct-Q4_K_L.gguf`.
 
 ### Text-to-Speech (audio generation)
 
